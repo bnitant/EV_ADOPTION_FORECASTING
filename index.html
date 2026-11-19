@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Adoption Predictor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page-glow glow-one"></div>
+<div class="page-glow glow-two"></div>
+<div class="container">
+    <header class="header">
+        <div class="brand-mark"><span class="brand-icon">⚡</span><span>EV INSIGHTS</span></div>
+        <h1>EV Adoption <span>Predictor</span></h1>
+        <p class="subtitle">Explore electric vehicle trends around the world and forecast what comes next.</p>
+        <div class="hero-line"><span></span><span>Explore&nbsp; · &nbsp;Analyse&nbsp; · &nbsp;Predict</span><span></span></div>
+    </header>
+
+    <main>
+        <section class="overview-grid" aria-label="Project highlights">
+            <div class="overview-card"><div class="overview-icon">🌍</div><div><p class="overview-label">GLOBAL COVERAGE</p><strong id="countryCount">—</strong><small>countries available</small></div></div>
+            <div class="overview-card"><div class="overview-icon">📈</div><div><p class="overview-label">CHART ENGINE</p><strong>Matplotlib</strong><small>charts generated in Python</small></div></div>
+            <div class="overview-card"><div class="overview-icon">🤖</div><div><p class="overview-label">PREDICTION MODEL</p><strong>Linear Regression</strong><small>stock and sales estimates</small></div></div>
+        </section>
+
+        <section class="card explore-card">
+            <div class="section-heading">
+                <div class="section-icon">🌐</div>
+                <div><p class="eyebrow">STEP 01</p><h2>Explore a country</h2><p>Select a country to see its historical EV adoption.</p></div>
+            </div>
+            <div class="form-grid">
+                <div class="field">
+                    <label for="country">Choose country</label>
+                    <select id="country"><option value="">Loading countries...</option></select>
+                    <small class="field-hint">Choose any country from the dataset.</small>
+                </div>
+                <button id="viewBtn" class="primary-btn"><span>View adoption chart</span><span class="btn-arrow">→</span></button>
+            </div>
+        </section>
+
+        <section id="chartSection" class="card chart-card hidden">
+            <div class="chart-header">
+                <div><p class="eyebrow">COUNTRY OVERVIEW</p><h2 id="chartTitle">EV Adoption</h2><p class="section-description">Historical electric vehicle stock over time</p></div>
+                <div class="chart-actions"><div id="latestValue" class="latest-box">Latest data</div><button id="downloadBtn" class="secondary-btn" disabled>↓ Download PNG</button></div>
+            </div>
+            <div class="chart-wrapper"><div id="chartLoader" class="chart-loader hidden"><span class="spinner"></span>Preparing chart with Python...</div><img id="chartImage" alt="EV adoption chart"></div>
+            <p class="chart-note"><span class="note-dot"></span> Chart generated using Python and Matplotlib</p>
+        </section>
+
+        <section class="card prediction-card">
+            <div class="section-heading">
+                <div class="section-icon purple">🔮</div>
+                <div><p class="eyebrow">STEP 02</p><h2>Predict EV growth</h2><p>Estimate EV stock or sales for a selected year.</p></div>
+            </div>
+            <div class="form-grid prediction-grid">
+                <div class="field"><label for="predictionType">What would you like to predict?</label><select id="predictionType"><option value="stock">EV Stock Prediction</option><option value="sales">EV Sales Prediction</option></select></div>
+                <div class="field"><label for="futureYear">Prediction year</label><input id="futureYear" type="number" min="1900" max="2200" placeholder="e.g. 2030"></div>
+                <button id="predictBtn" class="primary-btn"><span>Generate prediction</span><span class="btn-arrow">→</span></button>
+            </div>
+            <div class="year-shortcuts"><span>Quick select:</span><button type="button" class="year-chip" data-year="2028">2028</button><button type="button" class="year-chip" data-year="2030">2030</button><button type="button" class="year-chip" data-year="2035">2035</button><button type="button" class="year-chip" data-year="2040">2040</button></div>
+            <div id="result" class="result hidden" aria-live="polite"></div>
+        </section>
+        <div id="message" class="message hidden" role="alert"></div>
+    </main>
+    <footer><span>EV Adoption Predictor</span><span>Built with Python · HTML · CSS · JavaScript</span></footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
